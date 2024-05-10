@@ -76,7 +76,10 @@ def main_menu():
     print("--------------------------------------------------\n")
 
     while True:
-        option = input("Please select an option from 1-3:\n").strip()  # Trim
+        try:
+            option = input("Please select an option from 1-3:\n").strip()  # Trim
+        except Exception as e:
+            print(e)
 
         if option.isdigit():
             option = int(option)
@@ -117,7 +120,10 @@ def submenu_current():
     print("----------------------------------\n")
 
     while True:
-        option = input("Please select an option from 1-6:\n").strip()
+        try:
+            option = input("Please select an option from 1-6:\n").strip()
+        except Exception as e:
+            print(e)
         if option.isdigit():
             option = int(option)
             if 1 <= option <= 6:
@@ -157,7 +163,10 @@ def menu_category(category_name, category_sheet):
     for row in data:
         print("{:<20} {:<20} {:<10}".format(row[0], row[1], row[2]))
     print("----------------------------------\n")
-    input("Press 'Enter' to return to the Current Stock Menu\n")
+    try:
+        input("Press 'Enter' to return to the Current Stock Menu\n")
+    except Exception as e:
+        print(e)
     clear_screen()
     submenu_current()  # Display the submenu current menu after pressing Enter
     clear_screen()
@@ -180,7 +189,10 @@ def input_new_menu():
     print("--------------------------------------------------\n")
 
     while True:
-        option = input("Please select an option from 1-6:\n").strip()
+        try:
+            option = input("Please select an option from 1-6:\n").strip()
+        except Exception as e:
+            print(e)
 
         if option.isdigit():
             option = int(option)
@@ -219,16 +231,21 @@ def add_stock(inventory_sheet, category_name):
     print("Input New Items")
     print("--------------------------------------------------\n")
     while True:
-        item_name = input(
-         f"Enter {category_name} item name, "
-         f"or 'exit' to return to the menu:\n"
-        ).lower()
+        try:
+            item_name = input(
+            f"Enter {category_name} item name, "
+            f"or 'exit' to return to the menu:\n"
+            ).lower()
+        except Exception as e:
+            print(e)
 
         if item_name == "exit":
             input_new_menu()  # Display the menu again after exiting add_stock
             return  # Exit the function if the user enters "exit"
-
-        amount_to_add = input("Please enter the amount to add:\n").strip()
+        try:
+            amount_to_add = input("Please enter the amount to add:\n").strip()
+        except Exception as e:
+            print(e)
 
         if amount_to_add.isdigit():
             amount_to_add = int(amount_to_add)
@@ -268,7 +285,10 @@ def use_stock_menu():
     print("--------------------------------------------------\n")
 
     while True:
-        option = input("Please select an option from 1-6:\n").strip()
+        try:
+            option = input("Please select an option from 1-6:\n").strip()
+        except Exception as e:
+            print(e)
 
         if option.isdigit():
             option = int(option)
@@ -308,15 +328,20 @@ def use_stock(inventory_sheet, category_name):
     print("Use Stock Items")
     print("--------------------------------------------------\n")
     while True:
-        item_name = input(
-         f"Please enter {category_name} item name, "
-         f"or type 'exit' to go back to menu:\n"
-        ).lower()
+        try:
+            item_name = input(
+            f"Please enter {category_name} item name, "
+            f"or type 'exit' to go back to menu:\n"
+            ).lower()
+        except Exception as e:
+            print(e)
         if item_name == "exit":
             use_stock_menu()  # Display the menu again after exiting use_stock
             return  # Exit the function if the user enters "exit"
-
-        amount_to_use = input("Please enter the amount to use:\n")
+        try:
+            amount_to_use = input("Please enter the amount to use:\n")
+        except Exception as e:
+            print(e)
 
         if amount_to_use.isdigit():
             amount_to_use = int(amount_to_use)
