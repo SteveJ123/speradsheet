@@ -3,9 +3,7 @@ from google.oauth2.service_account import Credentials
 import os
 from patterns import PATTERNS
 # from env import creds
-from dotenv import load_dotenv
 import json
-load_dotenv()
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -13,7 +11,7 @@ SCOPE = [
     "https://www.googleapis.com/auth/drive"
 ]
 
-CREDS = Credentials.from_service_account_info(json.loads(os.getenv('creds')))
+CREDS = Credentials.from_service_account_file('creds.json')
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('data')
