@@ -58,7 +58,10 @@ def welcome_message():
     print("--------------------------------------------------\n")
     print("WELCOME TO STOCK TRACE\n")
     print("--------------------------------------------------\n")
-    input("Press Enter to go to the main menu\n")
+    try:
+        input("Press Enter to go to the main menu\n")
+    except Exception as e:
+        print(e)
 
 
 def main_menu():
