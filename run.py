@@ -77,7 +77,7 @@ def main_menu():
 
     while True:
         try:
-            option = input("Please select an option from 1-3:\n").strip()
+            option = int(input("Please select an option from 1-3:\n").strip())
         except Exception as e:
             print(e)
 
