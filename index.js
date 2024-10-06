@@ -3,6 +3,7 @@
 // https://www.totaljs.com
 // ===================================================
 //test
+const test;
 const options = {};
 
 // options.ip = '127.0.0.1';
